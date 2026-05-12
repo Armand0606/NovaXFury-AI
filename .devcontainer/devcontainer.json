@@ -1,0 +1,31 @@
+{
+  "name": "Fury Claw Code",
+  "image": "mcr.microsoft.com/devcontainers/rust:latest",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "rust-lang.rust-analyzer",
+        "vadimcn.vscode-lldb",
+        "serayuzgur.crates",
+        "fill-labs.dependi"
+      ],
+      "settings": {
+        "rust-analyzer.checkOnSave.command": "clippy",
+        "[rust]": {
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "rust-lang.rust-analyzer"
+        }
+      }
+    }
+  },
+  "postCreateCommand": "cd rust && cargo build --workspace",
+  "remoteUser": "vscode",
+  "forwardPorts": [],
+  "portsAttributes": {},
+  "remoteEnv": {
+    "RUST_BACKTRACE": "1"
+  }
+}
