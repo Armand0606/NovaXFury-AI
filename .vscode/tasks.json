@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Rust: Build Workspace",
+      "type": "shell",
+      "command": "cargo",
+      "args": ["build", "--workspace"],
+      "options": {
+        "cwd": "${workspaceFolder}/rust"
+      },
+      "problemMatcher": [
+        "$rustc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Rust: Run Doctor Check",
+      "type": "shell",
+      "command": "./target/debug/claw",
+      "args": ["doctor"],
+      "options": {
+        "cwd": "${workspaceFolder}/rust"
+      },
+      "problemMatcher": [],
+      "group": "test"
+    },
+    {
+      "label": "Rust: Run Tests",
+      "type": "shell",
+      "command": "cargo",
+      "args": ["test", "--workspace"],
+      "options": {
+        "cwd": "${workspaceFolder}/rust"
+      },
+      "problemMatcher": [
+        "$rustc"
+      ],
+      "group": "test"
+    },
+    {
+      "label": "Rust: Release Build",
+      "type": "shell",
+      "command": "cargo",
+      "args": ["build", "--workspace", "--release"],
+      "options": {
+        "cwd": "${workspaceFolder}/rust"
+      },
+      "problemMatcher": [
+        "$rustc"
+      ],
+      "group": "build"
+    }
+  ]
+}
